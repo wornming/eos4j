@@ -32,44 +32,4 @@
             <version>2.5.0</version>
         </dependency>
     </dependencies>
-    <distributionManagement>
-        <repository>
-            <id>trade_release</id>
-            <name>trade_release Repository</name>
-            <url>http://repos.hundsun.com:6060/nexus/content/repositories/trade_release/</url>
-        </repository>
-        <snapshotRepository>
-            <id>trade_snapshot</id>
-            <name>trade_snapshot Repository</name>
-            <url>http://repos.hundsun.com:6060/nexus/content/repositories/trade_snapshot/</url>
-        </snapshotRepository>
-    </distributionManagement>
-    <repositories>
-        <repository>
-            <id>trade_release</id>
-            <name>trade_release Repository</name>
-            <url>http://repos.hundsun.com:6060/nexus/content/repositories/trade_release/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>trade_snapshot</id>
-            <name>trade_snapshot Repository</name>
-            <url>http://repos.hundsun.com:6060/nexus/content/repositories/trade_snapshot/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>nexuscompany</id>
-            <name>Company Repository</name>
-            <url>http://repos.hundsun.com:6060/nexus/content/groups/public</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>
