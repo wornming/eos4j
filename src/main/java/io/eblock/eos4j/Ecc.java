@@ -2,6 +2,7 @@ package io.eblock.eos4j;
 
 import java.util.List;
 
+import io.eblock.eos4j.api.vo.transaction.push.EosTxSign;
 import io.eblock.eos4j.api.vo.transaction.push.TxSign;
 import io.eblock.eos4j.ecc.EccTool;
 import io.eblock.eos4j.ese.Ese;
@@ -59,6 +60,19 @@ public class Ecc {
 	 * @return
 	 */
 	public static String signTransaction(String privateKey, TxSign sign) {
+		return EccTool.signTransaction(privateKey, sign);
+	}
+
+	/**
+	 * 交易签名
+	 *
+	 * @param privateKey
+	 *            私钥
+	 * @param data
+	 *            需要签名的对象
+	 * @return
+	 */
+	public static String signTransaction(String privateKey, EosTxSign sign) {
 		return EccTool.signTransaction(privateKey, sign);
 	}
 

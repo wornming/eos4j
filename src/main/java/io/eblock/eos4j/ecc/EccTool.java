@@ -2,6 +2,7 @@ package io.eblock.eos4j.ecc;
 
 import java.math.BigInteger;
 
+import io.eblock.eos4j.api.vo.transaction.push.EosTxSign;
 import io.eblock.eos4j.api.vo.transaction.push.TxSign;
 import io.eblock.eos4j.utils.Base58;
 import io.eblock.eos4j.utils.ByteBuffer;
@@ -192,4 +193,25 @@ public class EccTool {
 		return signHash(privateKey, real);
 	}
 
+	/**
+	 * signTransaction
+	 * @param privateKey
+	 * @param push
+	 * @return
+	 */
+	public static String signTransaction(String privateKey, EosTxSign push) {
+		// tx
+		ByteBuffer bf = new ByteBuffer();
+		ObjectUtils.writeBytes(push, bf);
+		byte[] real = bf.getBuffer();
+		// append
+		real = ByteUtils.concat(real, java.nio.ByteBuffer.allocate(33).array());
+
+		// final byte [] b = real.clone();
+		// int[] a = IntStream.range(0, b.length).map(i -> b[i] & 0xff).toArray();
+		// for(int i=1;i<=a.length;i++) {
+		// System.out.print(a[i-1]+","+((i%8==0)?"\n":""));
+		// }
+		return signHash(privateKey, real);
+	}
 }
